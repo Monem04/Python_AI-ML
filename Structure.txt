@@ -1,0 +1,118 @@
+Request --> main --> Api_routes Function --> Response
+
+Api_routes Function
+- Pydantic schema
+- Service
+
+Pydantic schema
+- Request Response Model
+
+Service
+- SQLAlchemy Model
+- Utility
+- Business logic
+
+Model
+- SQLAlchemy Model 1
+- SQLAlchemy Model 2
+- SQLAlchemy Model 3
+
+Utility
+- Email
+- SMS
+
+==============================
+
+app:
+- api_route Function 1
+- api_route Function 2
+- api_route Function 3
+
+core:
+- config
+
+models:
+- SQLAlchemy model
+
+schemas:
+- Pydantic request response schema
+
+utils:
+- Utility function
+
+services:
+- Service function for business logic
+
+=======================================
+
+Fast Api Request --> Response --> Thread
+Email Send ----------> Thread (Background)
+
+=======================================
+
+Fast API BackgroundTasks
+- API Function
+- Service Function
+
+------------------
+
+Thread VS Background Task
+
+Thread After Request -- Background Service
+Background Task After response --> Background Service
+
+Thread
+Request --> (Background Service)-----> Response
+Request -------> Response(Thread)
+
+Background Task
+Request --------->Response ---------> (Background Service)
+
+
+
+ =======================
+ Rabbitmq Docker Config
+ docker compose up -d
+ docker compose down
+ http://localhost:15672
+
+RabbitMQ --> Outside of your fastAPI project
+Celery ---> Python Worker Package
+
+===========================
+
+1. Python API - 04
+2 Celery App
+    - pip install celery
+    - Celery App
+    - Celery config
+
+3. Celery Apply
+
+=================
+
+1. Fast API-------------> Running
+2. RabbitMQ-------------> Running
+3. Celery Worker -------> Running
+
+
+
+Celery worker Run
+celery -A core.celery_app worker --pool=solo --loglevel=info
+------------------------------------------------------------
+celery: Celery command run
+A core.celery_app: Celery app use
+pool=solo: Single Process
+loglevel=infp: task Status
+
+------------------------------------
+pip install flower
+
+1. Fast API-------------> Running
+2. RabbitMQ-------------> Running
+3. Celery Worker -------> Running
+4. Flower --------------> Running(celery -A core.celery_app flower)
+
+
+
+
